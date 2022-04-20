@@ -13,16 +13,18 @@ from models .place import Place
 from models.review import Review
 from models.user import User
 
+
 @app_views.route('/status')
 def status():
     """ display status"""
-    return jsonify({ 'status':"OK"})
+    return jsonify({'status': "OK"})
+
 
 @app_views.route('/stats')
 def stats():
     """ get the count of each object in storage"""
     new_dict = {}
-    new_dict['amenities'] =  storage.count(Amenity)
+    new_dict['amenities'] = storage.count(Amenity)
     new_dict['city'] = storage.count(City)
     new_dict['states'] = storage.count(State)
     new_dict['place'] = storage.count(Place)
